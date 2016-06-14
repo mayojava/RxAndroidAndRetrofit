@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "24rc4"
+
+    defaultConfig {
+        applicationId "com.android.sample.rxandroidandretrofit"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+
+        jackOptions {
+            enabled true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+
+    //retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+
+    //retrofit gson converter
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+
+    //retrofit adapter
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+
+    //rx android
+    compile 'io.reactivex:rxandroid:1.2.0'
+
+    //rx java
+    compile 'io.reactivex:rxjava:1.1.5'
+
+    compile 'org.glassfish:javax.annotation:10.0-b28'
+}
